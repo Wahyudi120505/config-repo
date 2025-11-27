@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: gateway-service
+  cloud:
+    gateway:
+      routes:
+        - id: user-route
+          url: ib://user-service
+          predicates: 
+            - path=/**
+          
+        - id: product-route
+          url: ib://product-service
+          predicates: 
+            - path=/**
+
+        - id: cart-route
+          url: ib://cart-service
+          predicates: 
+            - path=/**
+server:
+  port: 8080
