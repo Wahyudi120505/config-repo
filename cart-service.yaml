@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: cart-service
+
+  datasource:
+    url: jdbc:h2:mem:db_cart;DB_CLOSE_ON_EXIT=FALSE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+
+  h2:
+    console:
+      path: /h2-console
+
+server:
+  port: 8082
