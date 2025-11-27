@@ -5,16 +5,19 @@ spring:
     gateway:
       routes:
         - id: user-service
-          url: lb://user-service
+          uri: lb://user-service
           predicates:
             - path=/**
         
         - id: product-service
-          url: lb://product-service
+          uri: lb://product-service
           predicates:
             - path=/**
 
         - id: cart-service
-          url: lb://cart-service
+          uri: lb://cart-service
           predicates:
             - path=/**
+
+server:
+  port: 8080
