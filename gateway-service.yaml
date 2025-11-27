@@ -1,20 +1,20 @@
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8761/eureka/
-    register-with-eureka: true
-    fetch-registry: true
-
 spring:
-  jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: true
-  h2:
-    console:
-      enabled: true
+  application:
+    name: gateway-service
+  cloud:
+    gateway:
+      routes:
+        - id: user-service
+          url: lb://user-service
+          predicates:
+            - path=/**
+        
+        - id: product-service
+          url: lb://product-service
+          predicates:
+            - path=/**
 
-logging:
-  level:
-    org.springframework: INFO
-    com.example: DEBUG
+        - id: cart-service
+          url: lb://cart-service
+          predicates:
+            - path=/**
