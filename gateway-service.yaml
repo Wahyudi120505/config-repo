@@ -7,17 +7,17 @@ spring:
         - id: user-service
           uri: lb://user-service
           predicates:
-            - path=/**
+            - Path=/**
         
         - id: product-service
           uri: lb://product-service
           predicates:
-            - path=/**
+            - Path=/**
 
         - id: cart-service
           uri: lb://cart-service
           predicates:
-            - path=/**
+            - Path=/**
 
 server:
   port: 8080
